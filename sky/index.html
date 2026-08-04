@@ -669,10 +669,8 @@
     <!-- WebGL Particle Canvas (candle sparks + stars) -->
     <canvas id="ig-particles-canvas" class="absolute inset-0 w-full h-full z-0 pointer-events-none"></canvas>
 
-    <!-- Gradient overlays for depth -->
-    <div class="absolute inset-0 z-1 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(184,155,114,0.22) 0%, transparent 70%);"></div>
+    <!-- Gradient overlays for smooth top transition into dark beige -->
     <div class="absolute top-0 left-0 right-0 h-32 z-1 pointer-events-none" style="background: linear-gradient(to bottom, #eee5d3, #251c14);"></div>
-    <div class="absolute bottom-0 left-0 right-0 h-32 z-1 pointer-events-none" style="background: linear-gradient(to top, #251c14, #251c14);"></div>
 
     <!-- Main Content Grid -->
     <div class="relative z-10 container mx-auto max-w-7xl px-6 py-28 flex flex-col lg:flex-row items-center justify-between gap-16 min-h-screen">
@@ -738,12 +736,8 @@
         </div>
       </div>
 
-      <!-- RIGHT: 3D iPhone Mockup with floating post cards -->
       <div class="lg:w-1/2 flex items-center justify-center">
         <div id="ig-phone-scene" class="relative" style="width:320px; height:620px;">
-
-          <!-- Floating glow -->
-          <div class="absolute inset-0 rounded-[3rem] blur-3xl opacity-30" style="background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); transform: scale(1.1);"></div>
 
           <!-- iPhone body -->
           <div id="ig-phone-3d" class="relative w-full h-full rounded-[3rem] border-2 border-white/20 overflow-hidden shadow-2xl"
@@ -840,7 +834,7 @@
     #ig-float-3 { animation: igFloatC 3.5s ease-in-out infinite; }
     #ig-float-4 { animation: igFloatD 4.5s ease-in-out infinite; }
 
-    #ig-phone-3d { box-shadow: 0 0 80px rgba(184,155,114,0.25), 0 0 200px rgba(131,58,180,0.15); }
+    #ig-phone-3d { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
   </style>
 
 
