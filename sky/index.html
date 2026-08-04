@@ -1288,9 +1288,17 @@
           this.life = 1;
           this.decay = Math.random() * 0.008 + 0.004;
           this.size = Math.random() * 2.5 + 0.5;
-          // warm gold/orange/pink palette
-          const hues = [30, 38, 15, 340, 50];
-          this.hue = hues[Math.floor(Math.random() * hues.length)];
+          // Diverse beige palette (light warm beige, sand, champagne, vanilla, caramel)
+          const beigeTones = [
+            { h: 40, s: 45, l: 85 }, // Light Warm Beige
+            { h: 36, s: 40, l: 75 }, // Artisan Sand Beige
+            { h: 42, s: 55, l: 80 }, // Champagne Gold Beige
+            { h: 38, s: 60, l: 90 }, // Soft Vanilla Cream
+            { h: 32, s: 50, l: 70 }, // Muted Caramel Beige
+            { h: 45, s: 35, l: 82 }  // Ivory Silk Beige
+          ];
+          const tone = beigeTones[Math.floor(Math.random() * beigeTones.length)];
+          this.color = `hsl(${tone.h}, ${tone.s}%, ${tone.l}%)`;
         }
         update() {
           this.x += this.vx;
@@ -1301,10 +1309,10 @@
         }
         draw() {
           ctx.save();
-          ctx.globalAlpha = this.life * 0.75;
-          ctx.fillStyle = `hsl(${this.hue}, 95%, 65%)`;
-          ctx.shadowColor = `hsl(${this.hue}, 95%, 65%)`;
-          ctx.shadowBlur = 8;
+          ctx.globalAlpha = this.life * 0.85;
+          ctx.fillStyle = this.color;
+          ctx.shadowColor = this.color;
+          ctx.shadowBlur = 6;
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.fill();
